@@ -83,3 +83,12 @@ sudo apt autoremove
 ```
 sudo npm install -g esbuild
 ```
+
+ビルド、テスト方法など。
+
+* https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/typescript-package.html
+
+`npm install` でシンボリックリンクが貼れなくてエラーになったので、下記で解消した。  
+(OSの再起動も必要だった)
+
+* [Windowsホスト上のVagrantのシンボリックリンクフォルダでyarn installできない問題の解決 \- Qiita](https://qiita.com/maikya_gu/items/8e313dcd50c39f5a4b0b)
