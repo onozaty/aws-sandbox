@@ -92,3 +92,19 @@ sudo npm install -g esbuild
 (OSの再起動も必要だった)
 
 * [Windowsホスト上のVagrantのシンボリックリンクフォルダでyarn installできない問題の解決 \- Qiita](https://qiita.com/maikya_gu/items/8e313dcd50c39f5a4b0b)
+
+### DynamoDBに繋ぐ
+
+```
+npm install --save @aws-sdk/client-dynamodb
+npm install --save @aws-sdk/lib-dynamodb
+```
+
+AWS SDKのドキュメント。  
+
+* https://docs.aws.amazon.com/ja_jp/sdk-for-javascript/v3/developer-guide/welcome.html
+
+DynamoDB関連は下記。
+
+* https://docs.aws.amazon.com/ja_jp/sdk-for-javascript/v3/developer-guide/javascript_dynamodb_code_examples.html
+

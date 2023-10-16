@@ -1,4 +1,9 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
+import { PutCommand, DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
+
+const client = new DynamoDBClient({});
+const docClient = DynamoDBDocumentClient.from(client);
 
 /**
  *
@@ -12,10 +17,22 @@ import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
 export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
     try {
+        const requestJSON = JSON.parse(event.body as string);
+
+        const command = new PutCommand({
+            TableName: 'SampleUsers',
+            Item: {
+                UserId: requestJSON.UserId,
+                UserName: requestJSON.UserName,
+            },
+        });
+
+        await docClient.send(command);
+
         return {
             statusCode: 200,
             body: JSON.stringify({
-                message: 'hello world',
+                message: 'PUT OK',
             }),
         };
     } catch (err) {
