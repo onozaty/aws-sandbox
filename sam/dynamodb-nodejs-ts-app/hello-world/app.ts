@@ -25,6 +25,11 @@ export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGat
                 UserId: requestJSON.UserId,
                 UserName: requestJSON.UserName,
             },
+            Expected: {
+                UserId: {
+                    Exists: false,
+                },
+            },
         });
 
         await docClient.send(command);
