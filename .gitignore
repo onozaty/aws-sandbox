@@ -1,2 +1,3 @@
 ﻿.vagrant/
 sam/**/.aws-sam/
+**/node_modules/
